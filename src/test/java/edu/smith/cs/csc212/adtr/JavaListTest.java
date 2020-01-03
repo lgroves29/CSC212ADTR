@@ -167,4 +167,45 @@ public class JavaListTest {
 	public void testEquals2() {
 		assertEquals(makeFullList(), makeFullList());
 	}
+	
+	@Test 
+	public void testSetIndex() {
+		ListADT<String> list = makeFullList();
+		list.setIndex(2,  "cat");
+		assertEquals("cat", list.getIndex(2));
+	}
+	
+	@Test
+	public void testAddIndex() {
+		ListADT<String> list = makeFullList();
+		list.addIndex(1, "banana");
+		assertEquals("banana", list.getIndex(1));
+	}
+	@Test 
+	public void testAddToBack() {
+		ListADT<String> list = makeFullList();
+		list.addBack("dragonfruit");
+		assertEquals("dragonfruit", list.getBack());
+	}
+	@Test
+	public void testRemoveBack() {
+		ListADT<String> list = makeFullList();
+		list.removeBack();
+		assertEquals(3, list.size());
+	}
+	@Test
+	public void testRemoveIndex() {
+		ListADT<String> list = makeFullList();
+		list.removeIndex(2);
+		assertEquals("d", list.getIndex(2));
+		assertEquals(3, list.size());
+	}
+	@Test
+	public void testRemoveFront() {
+		ListADT<String> list = makeFullList();
+		list.removeFront();
+		assertEquals(3, list.size());
+		assertEquals("b", list.getIndex(0));
+	}
 }
+
